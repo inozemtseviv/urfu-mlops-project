@@ -61,6 +61,6 @@ input_data = pd.DataFrame(
 prediction = model.predict(input_data)
 
 st.markdown(
-    f"<h2 style='font-size:80px; text-align:center;'>Качество: {prediction[0]} из 8</h2>", 
+    f"<h2 style='font-size:80px; text-align:center;'>Качество: {prediction[0]} из 8</h2>",
     unsafe_allow_html=True
 )
