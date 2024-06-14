@@ -1,38 +1,27 @@
 pipeline {
     agent {
-        label 'docker'
+        docker {
+            image 'python:3'
+            args '-u root --privileged'
+        }
     }
 
     stages {
         stage('Install Dependencies') {
-            agent {
-                docker {
-                    label 'docker'
-                    image 'python:3.11'
-                }
-            }
-
             steps {
                 script {
                     dir("./") {
-                        sh 'python -m pip install -r requirements.txt'
+                        sh 'pip install -r requirements.txt'
                     }
                 }
             }
         }
 
         stage('Run Tests') {
-            agent {
-                docker {
-                    label 'docker'
-                    image 'python:3.11'
-                }
-            }
-
             steps {
                 script {
                     dir("./") {
-                        sh "python -m pytest"
+                        sh "pytest"
                     }
                 }
             }
