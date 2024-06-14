@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     dir("./") {
-                        sh 'pip install -r requirements.txt'
+                        sh 'python -m pip install -r requirements.txt'
                     }
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     dir("./") {
-                        sh "pytest"
+                        sh "python -m pytest"
                     }
                 }
             }
