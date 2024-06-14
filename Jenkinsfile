@@ -1,12 +1,17 @@
 pipeline {
     agent {
-        docker {
-            image 'python:3'
-        }
+        label 'docker'
     }
 
     stages {
         stage('Install Dependencies') {
+            agent {
+                docker {
+                    label 'docker'
+                    image 'python:3.11'
+                }
+            }
+
             steps {
                 script {
                     dir("./") {
@@ -17,6 +22,13 @@ pipeline {
         }
 
         stage('Run Tests') {
+            agent {
+                docker {
+                    label 'docker'
+                    image 'python:3.11'
+                }
+            }
+
             steps {
                 script {
                     dir("./") {
