@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  app:
+    driver: bridge
+
+services:
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: front
+    restart: on-failure
+    ports:
+      - '8501:8501'
+    networks:
+      - app

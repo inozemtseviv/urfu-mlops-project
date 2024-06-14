@@ -49,6 +49,20 @@ streamlit run app.py
 pytest
 ```
 
+## Развёртывание приложения
+
+Развернуть в Docker:
+
+```shell
+make up
+```
+
+Остановить и удалить контейнеры:
+
+```shell
+make down
+```
+
 ## Лицензия
 
 [Лицензия MIT](https://mit-license.org/)
