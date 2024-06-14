@@ -1,12 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'python:3.11' }
+    }
 
     stages {
         stage('Install Dependencies') {
             steps {
                 script {
                     dir("./") {
-                        sh 'pip install -r requirements.txt'
+                        sh 'python -m pip install -r requirements.txt'
                     }
                 }
             }
@@ -16,7 +18,7 @@ pipeline {
             steps {
                 script {
                     dir("./") {
-                        sh "pytest"
+                        sh "python -m pytest"
                     }
                 }
             }
