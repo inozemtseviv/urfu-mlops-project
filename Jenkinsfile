@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: "https://github.com/inozemtseviv/urfu-mlops-project"
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 script {
